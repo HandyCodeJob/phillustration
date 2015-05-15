@@ -57,6 +57,7 @@ docs/_build/
 # Pelican
 output/
 cache/
+.travis.yml
 
 # PyBuilder
 target/
