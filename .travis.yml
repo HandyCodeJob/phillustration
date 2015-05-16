@@ -1,21 +1,19 @@
 language: python
 python:
-    - "3.4"
+- '3.4'
 cache: apt
 install:
-    - "pip install -r requirements.txt"
-script: "make html"
-deploy:
-    provider: s3
-    access_key_id: $(AWS_ACCESS_KEY)
-    secret_access_key: $(AWS_SECRET_KEY)
-    bucket: www.phillustration.net
-    endpoint: www.phillustration.net.s3-website-us-east-1.amazonaws.com 
-    region: us-east-1
-    skip_cleanup: true
-    local-dir: output
-    acl: public_read
-    detect_encoding: true
+- pip install -r requirements.txt
+script: make html
 notifications:
-    email:
-        on_failure: always
+  email:
+    on_failure: always
+deploy:
+  provider: s3
+  access_key_id: AKIAI3ZT6IVTGI6K5NQQ
+  secret_access_key:
+    secure: lAJ1bZrulOqSqL/cpDbcQyD40qdREW8gkoKuCcvlF10qUyAgt70Zb4fqJ62rIQt7wZygeiT/C+Ir4Yiss2c5KqM03slPJbJCvUxyXS41RkvuV2Y9U8CKEKjSkdSOvXAQKG684tCuV66bCUAHR3lS/Xyk+FAAtu0VmlyYwAzmk2PCpOwfyvtVnpDcVATl7lDWMcwFoTWbQBknnCoRE9s0SIbTLqPNIXko+/4anqckAhZ9hCo6n+b9uY4NxARdXpxKWmcjpc1JfNwMuYBCv4V8qoagStoXKxaNupOyEliBRAua+kbm3tKW9k+WfOodvMRqzENcargl/bXFklROp0UUS9HyXIXUZcHNBM9Dsv5V3wx3pkLEm9nun0TK5blIn7NIwh3gDqM/OXex/XgRBIz6cmDXPuYVvGzJ/OlZULDdPTWBvMoE5Les2pen3Gb0VXbPy8lzFOIDROQeZh8k6nqVVdHED2jhqZdx+hQAleEaJcj/D0BHSe7gYFGHw9Z2UF4iK6zvAUvv8c1XNEhvgF2EhZ01lNYm3+yrZaqM5TvYh5l56nm/sooR8Lqi5Uj1XXMNXYNTNbdAZmbprNYOQcgAfaoG3zqUVAd2uY8RdzH1mPizxiI3Qdt2itYv+Zuh/uSPs2DIPz0dtSjs+kFWXWgAbhEIxrmIZoyb9Ir11hxHyAg=
+  bucket: www.phillustration.net
+  acl: public_read
+  on:
+    repo: HandyCodeJob/phillustration
